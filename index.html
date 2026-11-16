@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Fórmula Resolvente</title>
+</head>
+<body>
+
+  <script>
+    let continuar = true;
+
+    // 3. Ciclo para permitir vários cálculos sem atualizar a página
+    while (continuar) {
+      let a = Number(prompt("Valor de a:"));
+
+      // 1. Validação de dados: impede que 'a' seja 0 (ou um valor inválido)
+      while (a === 0 || isNaN(a)) {
+        alert("Erro: O valor de 'a' não pode ser zero nem texto. Tenta novamente.");
+        a = Number(prompt("Valor de a:"));
+      }
+
+      let b = Number(prompt("Valor de b:"));
+      let c = Number(prompt("Valor de c:"));
+
+      let delta = b * b - 4 * a * c;
+
+      if (delta >= 0) {
+        let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+        // 2. Arredondamento para 2 casas decimais com .toFixed(2)
+        alert("x1 = " + x1.toFixed(2) + " e x2 = " + x2.toFixed(2));
+      } else {
+        alert("Não existem raízes reais.");
+      }
+
+      // Pergunta ao utilizador se quer fazer outro cálculo (botão OK = true, Cancelar = false)
+      continuar = confirm("Desejas calcular outra equação?");
+    }
+  </script>
+
+</body>
+</html>
